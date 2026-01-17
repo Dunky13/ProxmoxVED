@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source <(curl -fsSL https://raw.githubusercontent.com/dunky13/ProxmoxVED/feature/mesh-organizer/misc/build.func)
+source <(curl -fsSL https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feature/mesh-organizer/misc/build.func)
 # Copyright (c) 2021-2026 community-scripts ORG
 # Author: Dunky13
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
