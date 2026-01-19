@@ -15,10 +15,16 @@ update_os
 
 msg_info "Installing dependencies"
 $STD apt install -y \
-  build-essential \
-  python3 \
+  wget \
+  xz-utils \
+  nodejs \
+  libfontconfig1-dev \
+  libssl-dev \
   openssl \
-  caddy
+  build-essential \
+  cmake \
+  gcc-aarch64-linux-gnu \
+  g++-aarch64-linux-gnu
 msg_ok "Installed dependencies"
 
 # NODE_VERSION="24" NODE_MODULE="pnpm" setup_nodejs
