@@ -41,7 +41,6 @@ function update_script() {
     # cp -a /opt/mesh-organiser/data /opt/mesh-organiser-backup
 
     CLEAN_INSTALL=1 fetch_and_deploy_gh_release "mesh-organiser" "suchmememanyskill/mesh-organiser" "tarball"
-    LATEST_APP_VERSION=$(get_latest_github_release "suchmememanyskill/mesh-organiser" false)
 
     msg_info "Updating mesh-organiser"
     cd /opt/mesh-organiser
