@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Copyright (c) 2021-2026 community-scripts ORG
 # Author: tteck (tteckster) | MickLesk | michelroegl-brunner
-# License: MIT | https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feature/mesh-organizer/LICENSE
+# License: MIT | https://github.com/community-scripts/ProxmoxVED/raw/branch/main/LICENSE
 # Revision: 1
 
 # ==============================================================================
@@ -3419,7 +3419,7 @@ chmod +x /etc/profile.d/term.sh" || true
   set +Eeuo pipefail # Disable ALL error handling temporarily
   trap - ERR         # Remove ERR trap completely
 
-  lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feature/mesh-organizer/${var_install}.sh)"
+  lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feature/mesh-organizer/install/${var_install}.sh)"
   local lxc_exit=$?
 
   set -Eeuo pipefail       # Re-enable error handling
