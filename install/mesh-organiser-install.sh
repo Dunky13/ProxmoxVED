@@ -29,6 +29,7 @@ import_local_ip
 msg_info "Installing mesh-organiser"
 cd /opt/mesh-organiser
 chmod +x ./build-web.sh
+export TARGETPLATFORM="linux/$(dpkg --print-architecture)"
 $STD ./build-web.sh
 msg_ok "Installed mesh-organiser"
 

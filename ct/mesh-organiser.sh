@@ -45,6 +45,7 @@ function update_script() {
     msg_info "Updating mesh-organiser"
     cd /opt/mesh-organiser
     chmod +x ./build-web.sh
+    export TARGETPLATFORM="linux/$(dpkg --print-architecture)"
     $STD ./build-web.sh
     msg_ok "Updated mesh-organiser"
     msg_info "Starting Service"
