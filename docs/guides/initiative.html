@@ -28,7 +28,7 @@ the fork installer was explicitly approved for personal testing.</p>
 <h2>Create the container</h2>
 <p>Run these commands as root in the <strong>Proxmox host shell</strong>, not in an existing
 container:</p>
-<pre><code class="language-bash">export COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/Dunky13/ProxmoxVED/feat/initiative
+<pre><code class="language-bash">export COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feat/initiative
 dev_mode=keep bash -c &quot;$(curl -fsSL &quot;$COMMUNITY_SCRIPTS_URL/ct/initiative.sh&quot;)&quot;
 </code></pre>
 <p>Keep the <code>export</code>: the engine needs it to find the matching installer in the

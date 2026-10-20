@@ -15,7 +15,7 @@ Run these commands as root in the **Proxmox host shell**, not in an existing
 container:
 
 ```bash
-export COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/Dunky13/ProxmoxVED/feat/initiative
+export COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/Dunky13/ProxmoxVED/refs/heads/feat/initiative
 dev_mode=keep bash -c "$(curl -fsSL "$COMMUNITY_SCRIPTS_URL/ct/initiative.sh")"
 ```
 
