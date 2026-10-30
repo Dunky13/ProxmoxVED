@@ -3,7 +3,7 @@
 This test installer is proposed for
 [DevScripts](https://github.com/community-scripts/DevScripts), the required
 testing stage before a new script can reach ProxmoxVE. It is not an accepted
-Community Script. Initiative has 191 stars as of 2026-10-30, below DevScripts'
+Community Script. Initiative has 192 stars as of 2026-10-30, below DevScripts'
 600-star requirement and the ProxmoxVE script-request form's 1,000-star
 requirement. Consideration requires a maintainer exception; neither threshold
 is claimed to be met.
@@ -227,6 +227,40 @@ installed v0.76.0 and upgraded the official package to v0.77.1; subsequent HTTPS
 checks confirmed that version and healthy readiness. The corrected full updater
 has not been rerun on that container. Browser interactions, reboot persistence,
 and preservation of real user data across the upgrade remain unverified.
+
+## PR #2484 CI repair handoff
+
+The `ct scripts base` workflow checks every CT script, including existing ones.
+Its failure on the initial Initiative submission came from `ct/jumpserver.sh`,
+the only script missing `_CS_DEFAULT_URL`. The repair sets that value before
+loading the engine, so a remotely fetched Jumpserver script selects DevScripts'
+installer instead of falling back to ProxmoxVE. Initiative already declares the
+correct default. An explicit `COMMUNITY_SCRIPTS_URL` still selects a fork or
+branch for either script; keep it exported when testing this PR.
+
+The repair preserves the native installer, updater, checksum verification,
+database backups and all 35 offline regression cases. Applicable local checks
+are the commands above, Bash syntax and ShellCheck for `ct/jumpserver.sh`,
+`actionlint .github/workflows/ct-base.yml .github/workflows/bash-syntax.yml`,
+and the complete scripts-base and syntax loops from those workflows. Local
+source-resolution checks exercise the shared engine's default and explicit URL
+selection without running an installer. These checks establish source routing
+and shell behavior, not a container deployment.
+
+Jumpserver's existing updater has seven ShellCheck `SC2164` warnings about
+unguarded directory changes. The repair adds no diagnostics; these pre-existing
+warnings remain outside this scripts-base repair. Initiative's scripts and
+regression harness pass ShellCheck with the framework exclusions above.
+
+The separate PR requirements failure is still the unmet **600+ GitHub stars**
+requirement. The upstream repository currently has 192 stars, was created on
+2025-11-22, remains active and publishes official releases and native packages.
+Keep the star checkbox unchecked and the PR in draft. Maintainers must decide
+the adoption exception; do not relabel the contribution or bypass the check.
+Fresh corrected-branch Proxmox testing, browser/file/live-editor behavior, reboot
+persistence and the corrected full updater's preservation of real user data
+remain operator acceptance work in issue #2483. No deployment is part of this
+CI repair.
 
 ## Sources
 
